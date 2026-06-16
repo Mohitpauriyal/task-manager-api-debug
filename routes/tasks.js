@@ -92,10 +92,10 @@ router.put('/:id', (req, res, next) => {
     const index = getTaskIndex(req.params.id);
     if (index === -1) return res.status(404).json({ error: 'Task not found' });
 
-    const existingTask = tasks[index];
+    const updatedTask = tasks[index];
     const updatedTask = {
       ...req.body,
-      ...existingTask,
+      ...updatedTask,
       updatedAt: new Date().toISOString(),
     };
 
